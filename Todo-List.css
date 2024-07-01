@@ -1,0 +1,202 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope' !important;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url(Font/Manrope-Light.ttf) format('woff2');
+    src: url(Font/Manrope-Light.ttf) format('woff');
+    src: url(Font/Manrope-Light.ttf) format('truetype');
+    font-style: normal;
+}
+
+:root{
+    --primaryColor: rgb(18, 169, 234);
+    --secondaryColor: rgb(5, 75, 101);
+}
+
+body{
+    min-height: 100vh;
+    background-image: linear-gradient(to left bottom, #008cc3, #6cbf00da, #2f0093, #6cbf00, #00e0f4c5);
+}
+
+.container-fluid{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255, 253, 187, 0.65);
+    box-shadow: 0 5px 18px rgba(90, 90, 90, 0.262);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 10px;
+}
+
+.fixedHeader{
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+    background-color: white;
+    /* box-shadow: 0 5px 18px rgba(90, 90, 90, 0.262); */
+    /* padding-top: 20px; */
+    padding: 20px;
+}
+
+.todoList-app{
+    width: 100%;
+    max-width: 800px;
+    height: 600px;
+    min-height: 400px;
+    padding: 0px 20px 20px;
+    background-color: rgb(255, 254, 254);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    overflow: auto;
+}
+
+.todoList-app::-webkit-scrollbar{
+    width: 10px;
+    background-color: #fff;
+}
+
+.todoList-app::-webkit-scrollbar-thumb{
+    background-color: #d7d7d7;
+    border-radius: 20px;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    margin: 5px 0 20px;
+    color: rgb(0, 0, 0);
+}
+
+.title img{
+    width: 35px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.addTask-container{
+    width: 100%;
+    background-color: rgb(235, 235, 235);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.addTask{
+    flex: 1;
+    padding: 18px 20px 18px 30px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    font-size: 17px;
+    background-color: rgb(235, 235, 235);
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.addBtn{
+    background-color: var(--primaryColor);
+    padding: 18px 38px;
+    font-size: 18px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+ul{
+    margin: 30px 0 10px !important;
+    padding: 0 20px !important;
+    padding-left: 3rem !important;
+    /* padding-right: 2rem !important; */
+}
+
+ul li{
+    list-style: none;
+    padding: 15px 0 15px 20px;
+    font-size: 18px;
+    font-weight: 600!important;
+    cursor: pointer;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    background-image: url(./images/unchecked.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    left: -20px;
+    top: 16px;
+}
+
+ul li.checked{
+    text-decoration: line-through;
+    color: rgb(141, 141, 141);
+}
+
+ul li.checked::before{
+    background-image: url(./images/checked.png);
+}
+
+ul li cancelTask{
+    position: absolute;
+    top: 8px;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 40px;
+    color: #555;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li cancelTask:hover{
+    background-color: rgb(227, 202, 255);
+}
+
+@media screen and (max-width: 600px) {
+    .addTask-container{
+        flex-direction: column;
+    }
+
+    .addTask{
+        background-color: rgb(233, 233, 233);
+        width: 100%;
+        border-radius: 0;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .addBtn{
+        padding: 10px 20px;
+        width: 100%;
+        border-radius: 0;
+        border-radius: 20px;
+
+    }
+}
